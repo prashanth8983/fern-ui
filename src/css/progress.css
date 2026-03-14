@@ -1,0 +1,77 @@
+@layer base {
+  /* Fern Linear Progress Indicator */
+  progress {
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border: none;
+    border-radius: var(--md-shape-full);
+    overflow: hidden;
+    background-color: var(--md-surface-variant);
+
+    &::-webkit-progress-bar {
+      background-color: var(--md-surface-variant);
+      border-radius: var(--md-shape-full);
+    }
+
+    &::-webkit-progress-value {
+      background-color: var(--md-primary);
+      border-radius: var(--md-shape-full);
+      transition: width var(--md-motion-long) var(--md-motion-standard);
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--md-primary);
+      border-radius: var(--md-shape-full);
+    }
+  }
+
+  /* Fern Meter */
+  meter {
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border: none;
+    border-radius: var(--md-shape-full);
+    overflow: hidden;
+    background: var(--md-surface-variant);
+
+    &::-webkit-meter-bar {
+      background: var(--md-surface-variant);
+      border: none;
+      border-radius: var(--md-shape-full);
+      height: 4px;
+    }
+
+    &::-webkit-meter-optimum-value,
+    &::-webkit-meter-suboptimum-value,
+    &::-webkit-meter-even-less-good-value {
+      border-radius: var(--md-shape-full);
+    }
+
+    &::-webkit-meter-optimum-value {
+      background: var(--md-success);
+    }
+
+    &::-webkit-meter-suboptimum-value {
+      background: var(--md-caution);
+    }
+
+    &::-webkit-meter-even-less-good-value {
+      background: var(--md-error);
+    }
+
+    &::-moz-meter-bar {
+      background: var(--md-success);
+      border-radius: var(--md-shape-full);
+    }
+
+    &:-moz-meter-sub-optimum::-moz-meter-bar {
+      background: var(--md-caution);
+    }
+
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+      background: var(--md-error);
+    }
+  }
+}

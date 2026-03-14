@@ -1,0 +1,30 @@
+@layer components {
+  /* Fern Circular Progress Indicator */
+  .spinner {
+    --spinner-size: 48px;
+    --spinner-width: 4px;
+    --spinner-color: var(--md-primary);
+
+    display: inline-block;
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border-radius: var(--md-shape-full);
+    border: var(--spinner-width) solid var(--md-surface-variant);
+    border-top-color: var(--spinner-color);
+    animation: md-spin 1.2s linear infinite;
+
+    &.small {
+      --spinner-size: 24px;
+      --spinner-width: 3px;
+    }
+
+    &.large {
+      --spinner-size: 64px;
+      --spinner-width: 5px;
+    }
+  }
+
+  @keyframes md-spin {
+    to { transform: rotate(360deg); }
+  }
+}

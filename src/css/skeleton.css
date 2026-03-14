@@ -1,0 +1,38 @@
+@layer components {
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--md-surface-variant) 25%,
+      var(--md-surface-3) 50%,
+      var(--md-surface-variant) 75%
+    );
+    background-size: 200% 100%;
+    animation: md-shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--md-shape-xs);
+
+    &.circle {
+      border-radius: var(--md-shape-full);
+    }
+
+    &.text {
+      height: 1em;
+      margin-block-end: var(--md-space-2);
+    }
+
+    &.heading {
+      height: 1.5em;
+      width: 60%;
+      margin-block-end: var(--md-space-3);
+    }
+
+    &.card {
+      height: 200px;
+      border-radius: var(--md-shape-m);
+    }
+  }
+
+  @keyframes md-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}

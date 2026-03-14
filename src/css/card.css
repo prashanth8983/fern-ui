@@ -1,0 +1,84 @@
+@layer components {
+  /* Fern Card — Filled by default */
+  .card {
+    background-color: var(--md-surface-1);
+    color: var(--md-on-surface);
+    border: none;
+    border-radius: var(--md-shape-m);
+    padding: var(--md-space-6);
+    overflow: hidden;
+
+    /* Fern Elevated Card */
+    &.elevated {
+      background-color: var(--md-surface-0);
+      box-shadow: var(--md-elevation-1);
+    }
+
+    /* Fern Outlined Card */
+    &.outlined {
+      background-color: var(--md-surface-0);
+      border: 1px solid var(--md-outline-variant);
+    }
+
+    /* Fern Tonal Card */
+    &.tonal {
+      background-color: var(--md-surface-variant);
+    }
+
+    /* Interactive card — clickable */
+    &[role="button"],
+    &:is(a, button) {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition:
+        box-shadow var(--md-motion-medium) var(--md-motion-standard);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: var(--md-on-surface);
+        opacity: 0;
+        transition: opacity var(--md-motion-medium) linear;
+      }
+
+      &:hover::before { opacity: 0.08; }
+      &:active::before { opacity: 0.12; }
+
+      &.elevated:hover {
+        box-shadow: var(--md-elevation-2);
+      }
+    }
+  }
+
+  /* Card header — title + action */
+  .card-h {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--md-space-4);
+
+    h3, h4, h5 {
+      margin: 0;
+      font-family: var(--md-font-display);
+      font-size: var(--md-title-m);
+      font-weight: var(--md-font-medium);
+      line-height: 24px;
+    }
+
+    a {
+      font-size: var(--md-body-m);
+      font-weight: var(--md-font-medium);
+      color: var(--md-primary);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

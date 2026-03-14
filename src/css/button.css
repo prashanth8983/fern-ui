@@ -1,0 +1,304 @@
+@layer base {
+  /* Fern Common Button — Filled by default */
+  :is(button, [type=submit], [type=reset], [type=button], a.button), ::file-selector-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--md-space-2);
+    height: 40px;
+    padding: 0 24px;
+    font-family: var(--md-font-display);
+    font-size: var(--md-label-l);
+    font-weight: var(--md-font-medium);
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+    text-decoration: none;
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+    border: none;
+    border-radius: var(--md-shape-full);
+    position: relative;
+    overflow: hidden;
+    transition:
+      box-shadow var(--md-motion-medium) var(--md-motion-standard),
+      background-color var(--md-motion-medium) var(--md-motion-standard);
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    /* Fern State Layer */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover:not(:disabled)::before {
+      opacity: 0.08;
+    }
+
+    &:active:not(:disabled)::before {
+      opacity: 0.12;
+    }
+
+    &:hover:not(:disabled) {
+      box-shadow: var(--md-elevation-1);
+    }
+
+    /* Fern Filled Tonal */
+    &[data-variant="tonal"] {
+      background-color: var(--md-secondary-container);
+      color: var(--md-on-secondary-container);
+    }
+
+    /* Fern Outlined */
+    &.outline,
+    &[data-variant="outlined"] {
+      background-color: transparent;
+      color: var(--md-primary);
+      border: 1px solid var(--md-outline);
+
+      &:hover:not(:disabled) {
+        box-shadow: none;
+      }
+    }
+
+    /* Fern Text Button */
+    &.ghost,
+    &[data-variant="text"] {
+      background-color: transparent;
+      color: var(--md-primary);
+      border: none;
+      padding: 0 12px;
+
+      &:hover:not(:disabled) {
+        box-shadow: none;
+      }
+    }
+
+    /* Fern Elevated */
+    &[data-variant="elevated"] {
+      background-color: var(--md-surface-1);
+      color: var(--md-primary);
+      box-shadow: var(--md-elevation-1);
+
+      &:hover:not(:disabled) {
+        box-shadow: var(--md-elevation-2);
+      }
+    }
+
+    /* Fern Danger */
+    &[data-variant="danger"] {
+      background-color: var(--md-error);
+      color: var(--md-on-error);
+    }
+
+    /* Sizes */
+    &.small {
+      height: 32px;
+      padding: 0 16px;
+      font-size: var(--md-label-m);
+    }
+
+    &.large {
+      height: 48px;
+      padding: 0 32px;
+      font-size: var(--md-body-l);
+    }
+
+    /* Fern Icon Button */
+    &.icon {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: var(--md-shape-full);
+      background: none;
+      color: var(--md-on-surface-variant);
+
+      &::before {
+        background: var(--md-on-surface);
+      }
+
+      &.small {
+        width: 32px;
+        height: 32px;
+      }
+
+      &.large {
+        width: 48px;
+        height: 48px;
+      }
+
+      /* Filled icon button */
+      &.filled {
+        background: var(--md-primary);
+        color: var(--md-on-primary);
+
+        &::before {
+          background: currentColor;
+        }
+      }
+
+      /* Tonal icon button */
+      &.tonal {
+        background: var(--md-secondary-container);
+        color: var(--md-on-secondary-container);
+
+        &::before {
+          background: currentColor;
+        }
+      }
+
+      /* Outlined icon button */
+      &.outlined {
+        border: 1px solid var(--md-outline);
+      }
+
+      /* Notification dot overlay */
+      &.dot::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: var(--md-shape-full);
+        background: var(--md-error);
+        border: 2px solid var(--md-surface);
+      }
+    }
+  }
+
+  ::file-selector-button {
+    background-color: var(--md-surface-1);
+    color: var(--md-primary);
+    border: 1px solid var(--md-outline);
+  }
+
+  ::file-selector-button:hover {
+    background-color: var(--md-surface-2);
+  }
+}
+
+@layer components {
+  /* Fern FAB — Floating Action Button */
+  .fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--md-space-3);
+    height: 56px;
+    min-width: 56px;
+    padding: 0 16px;
+    font-family: var(--md-font-display);
+    font-size: var(--md-label-l);
+    font-weight: var(--md-font-medium);
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    border: none;
+    border-radius: var(--md-shape-l);
+    box-shadow: var(--md-elevation-3);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition:
+      box-shadow var(--md-motion-medium) var(--md-motion-standard);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover::before { opacity: 0.08; }
+    &:active::before { opacity: 0.12; }
+
+    &:hover {
+      box-shadow: var(--md-elevation-4);
+    }
+
+    /* Small FAB */
+    &.small {
+      height: 40px;
+      min-width: 40px;
+      padding: 0 8px;
+      border-radius: var(--md-shape-m);
+    }
+
+    /* Large FAB */
+    &.large {
+      height: 96px;
+      min-width: 96px;
+      border-radius: var(--md-shape-xl);
+    }
+
+    /* Surface variant */
+    &.surface {
+      background-color: var(--md-surface-3);
+      color: var(--md-primary);
+    }
+
+    /* Secondary */
+    &.secondary {
+      background-color: var(--md-secondary-container);
+      color: var(--md-on-secondary-container);
+    }
+
+    /* Tertiary */
+    &.tertiary {
+      background-color: var(--md-tertiary-container);
+      color: var(--md-on-tertiary-container);
+    }
+
+    /* Extended FAB — shows icon + label */
+    &:has(span:nth-child(2)) {
+      padding: 0 20px;
+    }
+  }
+
+  /* Fern Segmented Button */
+  menu.buttons {
+    list-style-type: none;
+    padding-inline-start: 0;
+    display: inline-flex;
+    border: 1px solid var(--md-outline);
+    border-radius: var(--md-shape-full);
+    overflow: hidden;
+
+    & > li {
+      & > * {
+        border-radius: 0;
+        border: none;
+        border-right: 1px solid var(--md-outline);
+        background: transparent;
+        color: var(--md-on-surface);
+        height: 40px;
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: none;
+        }
+      }
+
+      &:last-child > * {
+        border-right: none;
+      }
+
+      & > [aria-pressed="true"],
+      & > .active {
+        background: var(--md-secondary-container);
+        color: var(--md-on-secondary-container);
+      }
+    }
+  }
+}

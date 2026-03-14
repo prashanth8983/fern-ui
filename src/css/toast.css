@@ -1,0 +1,85 @@
+@layer components {
+  /* Fern Snackbar Container */
+  .toast-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    overflow: visible;
+
+    &::backdrop { display: none; }
+
+    &[data-placement="top-left"]     { inset: var(--md-space-4) auto auto var(--md-space-4); }
+    &[data-placement="top-center"]   { inset: var(--md-space-4) auto auto 50%; transform: translateX(-50%); }
+    &[data-placement="top-right"]    { inset: var(--md-space-4) var(--md-space-4) auto auto; }
+    &[data-placement="bottom-left"]  { inset: auto auto var(--md-space-4) var(--md-space-4); flex-direction: column-reverse; }
+    &[data-placement="bottom-center"]{ inset: auto auto var(--md-space-4) 50%; transform: translateX(-50%); flex-direction: column-reverse; }
+    &[data-placement="bottom-right"] { inset: auto var(--md-space-4) var(--md-space-4) auto; flex-direction: column-reverse; }
+  }
+
+  /* Fern Snackbar */
+  .toast {
+    --_transition: var(--md-motion-long);
+
+    padding: var(--md-space-4) var(--md-space-4);
+    max-width: 28rem;
+    min-width: 20rem;
+    pointer-events: auto;
+    background-color: var(--md-inverse-surface);
+    color: var(--md-inverse-on-surface);
+    border: none;
+    border-radius: var(--md-shape-xs);
+    box-shadow: var(--md-elevation-3);
+    line-height: 20px;
+    font-size: var(--md-body-m);
+    transition:
+      opacity var(--_transition) var(--md-motion-standard),
+      transform var(--_transition) var(--md-motion-standard),
+      margin var(--_transition) var(--md-motion-standard);
+
+    .toast-title {
+      font-weight: var(--md-font-medium);
+      margin: 0 0 var(--md-space-2) 0;
+    }
+
+    .toast-message {
+      color: var(--md-inverse-on-surface);
+      opacity: 0.8;
+    }
+
+    &[data-variant="success"]  { border-inline-start: 4px solid var(--md-success); }
+    &[data-variant="danger"]   { border-inline-start: 4px solid var(--md-error); }
+    &[data-variant="warning"]  { border-inline-start: 4px solid var(--md-caution); }
+
+    & > [data-close] {
+      margin-inline-start: auto;
+      background: none;
+      border: none;
+      color: var(--md-inverse-primary);
+      padding: 0;
+      cursor: pointer;
+      font-weight: var(--md-font-medium);
+
+      &:hover { opacity: 0.8; }
+    }
+
+    margin: var(--md-space-2) 0;
+
+    &[data-entering] {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+
+    &[data-exiting] {
+      opacity: 0;
+      margin: 0;
+      padding-block: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+}

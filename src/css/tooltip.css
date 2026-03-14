@@ -1,0 +1,52 @@
+@layer components {
+  /* Fern Plain Tooltip */
+  [data-tooltip] {
+    position: relative;
+  }
+
+  [data-tooltip]::before,
+  [data-tooltip]::after {
+    position: absolute;
+    inset-inline-start: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--md-motion-medium) var(--md-motion-standard),
+      transform var(--md-motion-medium) var(--md-motion-standard),
+      visibility var(--md-motion-medium) var(--md-motion-standard);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* Text */
+  [data-tooltip]::after {
+    content: attr(data-tooltip);
+    inset-block-end: calc(100% + 8px);
+    transform: translateX(-50%) translateY(4px);
+    padding: 4px 8px;
+    font-family: var(--md-font-body);
+    font-size: var(--md-body-s);
+    line-height: 16px;
+    white-space: nowrap;
+    background: var(--md-inverse-surface);
+    color: var(--md-inverse-on-surface);
+    border-radius: var(--md-shape-xs);
+  }
+
+  /* Arrow */
+  [data-tooltip]::before {
+    content: '';
+    inset-block-end: calc(100% - 4px);
+    transform: translateX(-50%) translateY(4px);
+    border: 6px solid transparent;
+    border-top-color: var(--md-inverse-surface);
+  }
+
+  [data-tooltip]:is(:hover, :focus-visible)::before,
+  [data-tooltip]:is(:hover, :focus-visible)::after {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 500ms;
+    transform: translateX(-50%) translateY(0);
+  }
+}

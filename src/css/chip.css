@@ -1,0 +1,80 @@
+@layer components {
+  /* Fern Chip — Assist, Filter, Input, Suggestion */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--md-space-2);
+    height: 32px;
+    padding: 0 16px;
+    font-family: var(--md-font-display);
+    font-size: var(--md-label-l);
+    font-weight: var(--md-font-medium);
+    line-height: 20px;
+    color: var(--md-on-surface-variant);
+    background: transparent;
+    border: 1px solid var(--md-outline);
+    border-radius: var(--md-shape-s);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition:
+      background-color var(--md-motion-medium) var(--md-motion-standard),
+      border-color var(--md-motion-medium) var(--md-motion-standard);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--md-on-surface);
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover::before { opacity: 0.08; }
+    &:active::before { opacity: 0.12; }
+
+    /* Selected / active state */
+    &[aria-selected="true"],
+    &.active,
+    &:has(input:checked) {
+      background-color: var(--md-secondary-container);
+      color: var(--md-on-secondary-container);
+      border-color: transparent;
+    }
+
+    /* Elevated chip */
+    &.elevated {
+      border: none;
+      box-shadow: var(--md-elevation-1);
+
+      &:hover {
+        box-shadow: var(--md-elevation-2);
+      }
+    }
+
+    /* Chip with leading icon */
+    &:has(> :first-child:is(img, svg, [class*="icon"])) {
+      padding-left: 8px;
+    }
+
+    /* Chip with trailing close */
+    & > [data-close] {
+      width: 18px;
+      height: 18px;
+      margin-right: -4px;
+      border: none;
+      background: none;
+      color: var(--md-on-surface-variant);
+      cursor: pointer;
+      border-radius: var(--md-shape-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: var(--md-on-surface);
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@layer components {
+  /* Fern Banner / Alert */
+  [role="alert"] {
+    position: relative;
+    display: flex;
+    gap: var(--md-space-4);
+    padding: var(--md-space-4) var(--md-space-6);
+    background-color: var(--md-surface-1);
+    border: none;
+    border-radius: var(--md-shape-m);
+    font-size: var(--md-body-m);
+    color: var(--md-on-surface);
+
+    &[data-variant] {
+      border: none;
+    }
+
+    &[data-variant="error"],
+    &[data-variant="danger"] {
+      background-color: var(--md-error-container);
+      color: var(--md-on-error-container);
+
+      & a {
+        color: var(--md-on-error-container);
+      }
+    }
+
+    &[data-variant="success"] {
+      background-color: color-mix(in srgb, var(--md-success) 12%, transparent);
+      color: var(--md-success);
+
+      & a {
+        color: var(--md-success);
+      }
+    }
+
+    &[data-variant="warning"] {
+      background-color: color-mix(in srgb, var(--md-caution) 15%, transparent);
+      color: var(--md-caution);
+
+      & a {
+        color: var(--md-caution);
+      }
+    }
+
+    &[data-variant="info"] {
+      background-color: var(--md-surface-variant);
+      color: var(--md-on-surface-variant);
+    }
+  }
+}

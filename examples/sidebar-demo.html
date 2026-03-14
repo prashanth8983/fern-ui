@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fern — Sidebar Patterns</title>
+  <link rel="stylesheet" href="../dist/fern.css">
+  <script src="../dist/fern.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+</head>
+<body data-sidebar-layout="always">
+
+  <!-- TOP APP BAR -->
+  <nav data-topnav>
+    <div class="topbar-l">
+      <button data-sidebar-toggle class="icon">
+        <span class="material-symbols-outlined">left_panel_open</span>
+      </button>
+      <span class="topbar-title">Sidebar Patterns</span>
+    </div>
+    <div class="topbar-r">
+      <button class="icon" title="Notifications">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+      <button class="icon" title="Settings">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- SIDEBAR with both patterns -->
+  <aside data-sidebar>
+
+    <!-- Brand -->
+    <header class="fern-brand">
+      <div class="fern-brand-icon">
+        <span class="material-symbols-outlined">bolt</span>
+      </div>
+      <span class="fern-brand-text">Acme App</span>
+    </header>
+
+    <!-- Main navigation (level 1) -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#" aria-current="page">
+            <span class="material-symbols-outlined">space_dashboard</span>
+            <span class="nav-label">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">monitoring</span>
+            <span class="nav-label">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">electric_bolt</span>
+            <span class="nav-label">Live Tail</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="fern-divider"></div>
+      <div class="fern-section">Infrastructure</div>
+
+      <ul>
+        <!-- Two-level: Services → push submenu -->
+        <li>
+          <button data-submenu="services-sub">
+            <span class="material-symbols-outlined">dns</span>
+            <span class="nav-label">Services</span>
+          </button>
+        </li>
+
+        <!-- Two-level: Deployments → push submenu -->
+        <li>
+          <button data-submenu="deploy-sub">
+            <span class="material-symbols-outlined">deployed_code</span>
+            <span class="nav-label">Deployments</span>
+          </button>
+        </li>
+
+        <!-- Expandable: Networking → inline expand -->
+        <li class="nav-expandable">
+          <button class="nav-expand-trigger">
+            <span class="material-symbols-outlined">network_check</span>
+            <span class="nav-label">Networking</span>
+          </button>
+          <ul class="nav-expand-content" style="max-height: 0">
+            <li><a href="#"><span class="material-symbols-outlined">language</span> <span class="nav-label">Domains</span></a></li>
+            <li><a href="#"><span class="material-symbols-outlined">vpn_key</span> <span class="nav-label">SSL / TLS</span></a></li>
+            <li><a href="#"><span class="material-symbols-outlined">shield</span> <span class="nav-label">Firewall</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="fern-divider"></div>
+      <div class="fern-section">Product</div>
+
+      <ul>
+        <!-- Two-level: API → push submenu -->
+        <li>
+          <button data-submenu="api-sub">
+            <span class="material-symbols-outlined">api</span>
+            <span class="nav-label">API</span>
+          </button>
+        </li>
+
+        <!-- Expandable: Customers → inline expand -->
+        <li class="nav-expandable">
+          <button class="nav-expand-trigger">
+            <span class="material-symbols-outlined">people</span>
+            <span class="nav-label">Customers</span>
+          </button>
+          <ul class="nav-expand-content" style="max-height: 0">
+            <li><a href="#"><span class="material-symbols-outlined">list</span> <span class="nav-label">Directory</span></a></li>
+            <li><a href="#"><span class="material-symbols-outlined">segment</span> <span class="nav-label">Segments</span></a></li>
+            <li><a href="#"><span class="material-symbols-outlined">payments</span> <span class="nav-label">Billing</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="fern-divider"></div>
+      <div class="fern-section">Account</div>
+
+      <ul>
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="nav-label">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">help</span>
+            <span class="nav-label">Help</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- User footer -->
+    <footer class="fern-user">
+      <div class="avatar">PR</div>
+      <div class="fern-user-info">
+        <div class="name">Prashanth R.</div>
+        <div class="org">Acme Inc.</div>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- ===== PUSH SUBMENU PANELS (grid column 2, sibling of aside) ===== -->
+
+  <!-- Services submenu -->
+  <div class="sidebar-submenu" id="services-sub">
+    <div class="submenu-header">
+      <button data-submenu-back>
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <span class="submenu-title">Services</span>
+    </div>
+    <ul>
+      <li><a href="#"><span class="material-symbols-outlined">cloud</span> <span class="nav-label">API Gateway</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">storage</span> <span class="nav-label">Databases</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">cached</span> <span class="nav-label">Cache</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">queue</span> <span class="nav-label">Queues</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">memory</span> <span class="nav-label">Workers</span></a></li>
+    </ul>
+  </div>
+
+  <!-- Deployments submenu -->
+  <div class="sidebar-submenu" id="deploy-sub">
+    <div class="submenu-header">
+      <button data-submenu-back>
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <span class="submenu-title">Deployments</span>
+    </div>
+    <ul>
+      <li><a href="#"><span class="material-symbols-outlined">history</span> <span class="nav-label">History</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">play_circle</span> <span class="nav-label">Pipelines</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">settings_ethernet</span> <span class="nav-label">Environments</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">rocket_launch</span> <span class="nav-label">Releases</span></a></li>
+    </ul>
+  </div>
+
+  <!-- API submenu -->
+  <div class="sidebar-submenu" id="api-sub">
+    <div class="submenu-header">
+      <button data-submenu-back>
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <span class="submenu-title">API</span>
+    </div>
+    <ul>
+      <li><a href="#"><span class="material-symbols-outlined">key</span> <span class="nav-label">Keys</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">webhook</span> <span class="nav-label">Webhooks</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">data_object</span> <span class="nav-label">Logs</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">speed</span> <span class="nav-label">Rate Limits</span></a></li>
+      <li><a href="#"><span class="material-symbols-outlined">description</span> <span class="nav-label">Documentation</span></a></li>
+    </ul>
+  </div>
+
+  <!-- Collapse toggle — direct child of layout so it can straddle the sidebar edge -->
+  <button class="sidebar-collapse-btn" data-sidebar-collapse title="Collapse sidebar">
+    <span class="material-symbols-outlined">chevron_left</span>
+  </button>
+
+  <!-- MAIN -->
+  <main>
+    <div class="page">
+      <div class="page-header">
+        <div>
+          <h1 class="display-font">Sidebar Patterns</h1>
+          <p class="page-header-sub">Three sidebar behaviors: rail collapse, push submenu, inline expandable</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="card elevated">
+            <div class="card-h"><h3>Collapsible (Rail)</h3></div>
+            <p class="body-m text-light">Click the <strong>chevron</strong> button on the sidebar edge to collapse it into an icon-only rail (72px). Click again to expand.</p>
+            <ul class="mt-4 body-s text-light">
+              <li>260px → 72px animated transition</li>
+              <li>Text labels fade out, icons remain centered</li>
+              <li>Section headers and user info hide</li>
+              <li>Brand collapses to icon only</li>
+              <li>Submenus auto-close on collapse</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card elevated">
+            <div class="card-h"><h3>Two-Level Push Panel</h3></div>
+            <p class="body-m text-light">Click <strong>Services</strong>, <strong>Deployments</strong>, or <strong>API</strong> to see the submenu panel slide in between the sidebar and main content, pushing the page right.</p>
+            <ul class="mt-4 body-s text-light">
+              <li>Parent items show a right chevron (→)</li>
+              <li>Submenu panel pushes content via CSS grid transition</li>
+              <li>Primary nav stays visible while panel is open</li>
+              <li>Click back arrow or trigger again to close</li>
+              <li>Uses <code>[data-submenu]</code> + <code>.sidebar-submenu</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card elevated mt-4">
+            <div class="card-h"><h3>Inline Expandable</h3></div>
+            <p class="body-m text-light">Click <strong>Networking</strong> or <strong>Customers</strong> — these expand children inline with a smooth slide-down animation.</p>
+            <ul class="mt-4 body-s text-light">
+              <li>Uses <code>.nav-expandable</code> with <code>.nav-expand-trigger</code></li>
+              <li>Down chevron rotates on open</li>
+              <li>Children indented 20px and animated via max-height</li>
+              <li>JavaScript toggles <code>.open</code> class</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card elevated mt-4">
+            <div class="card-h"><h3>HTML Patterns</h3></div>
+            <pre style="font-size:12px;line-height:1.5;overflow-x:auto;"><code>&lt;!-- Two-level trigger --&gt;
+&lt;button data-submenu="my-menu"&gt;
+  &lt;span class="material-symbols-outlined"&gt;dns&lt;/span&gt;
+  &lt;span class="nav-label"&gt;Services&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Push panel (sibling of aside) --&gt;
+&lt;div class="sidebar-submenu" id="my-menu"&gt;
+  &lt;div class="submenu-header"&gt;...&lt;/div&gt;
+  &lt;ul&gt;...&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Inline expandable --&gt;
+&lt;li class="nav-expandable"&gt;
+  &lt;button class="nav-expand-trigger"&gt;
+    &lt;span class="material-symbols-outlined"&gt;
+      network_check
+    &lt;/span&gt;
+    &lt;span class="nav-label"&gt;Networking&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class="nav-expand-content"
+      style="max-height:0"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Domains&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fern — Kitchen Sink</title>
+  <link rel="stylesheet" href="../dist/fern.css">
+  <script src="../dist/fern.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+  <style>
+    .demo-section {
+      padding: var(--md-space-8) 0;
+      border-bottom: 1px solid var(--md-outline-variant);
+    }
+    .demo-section:last-child { border-bottom: none; }
+    .demo-section h2 { margin-top: 0; }
+    .demo-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--md-space-3);
+      margin-bottom: var(--md-space-4);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--md-space-4);
+    }
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      gap: var(--md-space-3);
+      padding: var(--md-space-3) var(--md-space-4);
+      border-radius: var(--md-shape-m);
+      font-size: var(--md-body-s);
+      font-family: var(--md-font-mono);
+    }
+    .demo-box {
+      padding: var(--md-space-4);
+      border-radius: var(--md-shape-m);
+      text-align: center;
+      font-size: var(--md-body-s);
+    }
+  </style>
+</head>
+<body data-sidebar-layout="always">
+
+  <!-- TOP APP BAR -->
+  <nav data-topnav>
+    <div class="hstack gap-2">
+      <button data-sidebar-toggle class="icon">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="title-l" style="margin-left:4px;">fern</span>
+    </div>
+    <div style="margin-left:auto" class="hstack gap-1">
+      <button class="icon" title="Toggle theme">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <button class="icon" title="GitHub">
+        <span class="material-symbols-outlined">code</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- SIDEBAR -->
+  <aside data-sidebar>
+    <header style="padding:16px 20px;">
+      <span class="title-l">Components</span>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#typography" aria-current="page"><span class="material-symbols-outlined">text_fields</span> Typography</a></li>
+        <li><a href="#colors"><span class="material-symbols-outlined">palette</span> Colors</a></li>
+        <li><a href="#buttons"><span class="material-symbols-outlined">smart_button</span> Buttons</a></li>
+        <li><a href="#cards"><span class="material-symbols-outlined">dashboard</span> Cards</a></li>
+        <li><a href="#forms"><span class="material-symbols-outlined">input</span> Forms</a></li>
+        <li><a href="#chips"><span class="material-symbols-outlined">label</span> Chips</a></li>
+        <li><a href="#badges"><span class="material-symbols-outlined">new_releases</span> Badges</a></li>
+        <li><a href="#tabs"><span class="material-symbols-outlined">tab</span> Tabs</a></li>
+        <li><a href="#accordion"><span class="material-symbols-outlined">expand_more</span> Accordion</a></li>
+        <li><a href="#table"><span class="material-symbols-outlined">table</span> Table</a></li>
+        <li><a href="#dialog"><span class="material-symbols-outlined">open_in_new</span> Dialog</a></li>
+        <li><a href="#alerts"><span class="material-symbols-outlined">info</span> Alerts</a></li>
+        <li><a href="#progress"><span class="material-symbols-outlined">pending</span> Progress</a></li>
+        <li><a href="#avatars"><span class="material-symbols-outlined">account_circle</span> Avatars</a></li>
+        <li><a href="#tooltips"><span class="material-symbols-outlined">chat_bubble</span> Tooltips</a></li>
+        <li><a href="#dropdown"><span class="material-symbols-outlined">arrow_drop_down</span> Dropdown</a></li>
+        <li><a href="#toasts"><span class="material-symbols-outlined">notifications</span> Toasts</a></li>
+        <li><a href="#elevation"><span class="material-symbols-outlined">layers</span> Elevation</a></li>
+        <li><a href="#skeleton"><span class="material-symbols-outlined">hourglass_empty</span> Skeleton</a></li>
+        <li><a href="#utilities"><span class="material-symbols-outlined">build</span> Utilities</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div style="max-width:960px; padding: 0 32px 64px;">
+
+      <!-- TYPOGRAPHY -->
+      <section class="demo-section" id="typography">
+        <h2>Typography</h2>
+        <p class="text-light mb-4">Ferntype scale using Google Sans for display, Google Sans Text for body.</p>
+
+        <div class="vstack gap-2">
+          <span class="display-l">Display Large</span>
+          <span class="display-m">Display Medium</span>
+          <span class="display-s">Display Small</span>
+          <span class="headline-l">Headline Large</span>
+          <span class="headline-m">Headline Medium</span>
+          <span class="headline-s">Headline Small</span>
+          <span class="title-l">Title Large</span>
+          <span class="title-m">Title Medium</span>
+          <span class="title-s">Title Small</span>
+          <span class="label-l">Label Large</span>
+          <span class="label-m">Label Medium</span>
+          <span class="label-s">Label Small</span>
+          <span class="body-l">Body Large — for longer passages</span>
+          <span class="body-m">Body Medium — default reading</span>
+          <span class="body-s">Body Small — captions and hints</span>
+        </div>
+
+        <div class="mt-6">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <p>Paragraph text with <a href="#">a link</a>, <strong>bold</strong>, <em>italic</em>, <code>inline code</code>, and <mark>highlighted text</mark>.</p>
+          <blockquote>This is a blockquote. It provides context or citations.</blockquote>
+          <pre><code>const greeting = "Hello, Fern UI!";
+console.log(greeting);</code></pre>
+        </div>
+      </section>
+
+      <!-- COLORS -->
+      <section class="demo-section" id="colors">
+        <h2>Colors</h2>
+        <p class="text-light mb-4">Ferncolor system with light-dark() support. All colors adapt automatically.</p>
+
+        <h5>Primary</h5>
+        <div class="demo-grid mb-4">
+          <div class="color-swatch" style="background:var(--md-primary);color:var(--md-on-primary);">--md-primary</div>
+          <div class="color-swatch" style="background:var(--md-primary-container);color:var(--md-on-primary-container);">--md-primary-container</div>
+        </div>
+
+        <h5>Secondary</h5>
+        <div class="demo-grid mb-4">
+          <div class="color-swatch" style="background:var(--md-secondary);color:var(--md-on-secondary);">--md-secondary</div>
+          <div class="color-swatch" style="background:var(--md-secondary-container);color:var(--md-on-secondary-container);">--md-secondary-container</div>
+        </div>
+
+        <h5>Tertiary</h5>
+        <div class="demo-grid mb-4">
+          <div class="color-swatch" style="background:var(--md-tertiary);color:var(--md-on-tertiary);">--md-tertiary</div>
+          <div class="color-swatch" style="background:var(--md-tertiary-container);color:var(--md-on-tertiary-container);">--md-tertiary-container</div>
+        </div>
+
+        <h5>Error</h5>
+        <div class="demo-grid mb-4">
+          <div class="color-swatch" style="background:var(--md-error);color:var(--md-on-error);">--md-error</div>
+          <div class="color-swatch" style="background:var(--md-error-container);color:var(--md-on-error-container);">--md-error-container</div>
+        </div>
+
+        <h5>Surface levels</h5>
+        <div class="demo-grid mb-4">
+          <div class="color-swatch" style="background:var(--md-surface-0);border:1px solid var(--md-outline-variant);">--md-surface-0</div>
+          <div class="color-swatch" style="background:var(--md-surface-1);">--md-surface-1</div>
+          <div class="color-swatch" style="background:var(--md-surface-2);">--md-surface-2</div>
+          <div class="color-swatch" style="background:var(--md-surface-3);">--md-surface-3</div>
+          <div class="color-swatch" style="background:var(--md-surface-4);">--md-surface-4</div>
+          <div class="color-swatch" style="background:var(--md-surface-variant);">--md-surface-variant</div>
+        </div>
+
+        <h5>Extended</h5>
+        <div class="demo-grid">
+          <div class="color-swatch" style="background:var(--md-success);color:var(--md-on-success);">--md-success</div>
+          <div class="color-swatch" style="background:var(--md-caution);color:var(--md-on-caution);">--md-caution</div>
+        </div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="demo-section" id="buttons">
+        <h2>Buttons</h2>
+        <p class="text-light mb-4">Fernbutton variants: filled (default), tonal, outlined, text, elevated, danger.</p>
+
+        <h5>Variants</h5>
+        <div class="demo-row">
+          <button>Filled</button>
+          <button data-variant="tonal">Tonal</button>
+          <button class="outline">Outlined</button>
+          <button class="ghost">Text</button>
+          <button data-variant="elevated">Elevated</button>
+          <button data-variant="danger">Danger</button>
+          <button disabled>Disabled</button>
+        </div>
+
+        <h5>Sizes</h5>
+        <div class="demo-row">
+          <button class="small">Small</button>
+          <button>Default</button>
+          <button class="large">Large</button>
+        </div>
+
+        <h5>Icon Buttons</h5>
+        <div class="demo-row">
+          <button class="icon"><span class="material-symbols-outlined">favorite</span></button>
+          <button class="icon filled"><span class="material-symbols-outlined">add</span></button>
+          <button class="icon tonal"><span class="material-symbols-outlined">edit</span></button>
+          <button class="icon outlined"><span class="material-symbols-outlined">share</span></button>
+        </div>
+
+        <h5>With Icons</h5>
+        <div class="demo-row">
+          <button><span class="material-symbols-outlined" style="font-size:18px">add</span> Create</button>
+          <button data-variant="tonal"><span class="material-symbols-outlined" style="font-size:18px">upload</span> Upload</button>
+          <button class="outline"><span class="material-symbols-outlined" style="font-size:18px">download</span> Export</button>
+        </div>
+
+        <h5>FAB</h5>
+        <div class="demo-row">
+          <button class="fab small"><span class="material-symbols-outlined">add</span></button>
+          <button class="fab"><span class="material-symbols-outlined">edit</span></button>
+          <button class="fab"><span class="material-symbols-outlined" style="font-size:24px">edit</span> Compose</button>
+          <button class="fab surface"><span class="material-symbols-outlined">add</span></button>
+          <button class="fab secondary"><span class="material-symbols-outlined">add</span></button>
+          <button class="fab tertiary"><span class="material-symbols-outlined">add</span></button>
+        </div>
+
+        <h5>Segmented Buttons</h5>
+        <menu class="buttons">
+          <li><button aria-pressed="true"><span class="material-symbols-outlined" style="font-size:18px">check</span> Day</button></li>
+          <li><button>Week</button></li>
+          <li><button>Month</button></li>
+          <li><button>Year</button></li>
+        </menu>
+      </section>
+
+      <!-- CARDS -->
+      <section class="demo-section" id="cards">
+        <h2>Cards</h2>
+        <p class="text-light mb-4">Ferncard variants: filled (default), elevated, outlined.</p>
+
+        <div class="demo-grid">
+          <div class="card">
+            <h5>Filled Card</h5>
+            <p class="text-light body-s">Default card with surface-1 background. Used for content grouping.</p>
+          </div>
+          <div class="card elevated">
+            <h5>Elevated Card</h5>
+            <p class="text-light body-s">Surface-0 background with elevation-1 shadow. For prominent content.</p>
+          </div>
+          <div class="card outlined">
+            <h5>Outlined Card</h5>
+            <p class="text-light body-s">Surface-0 background with outline-variant border. For subtle grouping.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="demo-section" id="forms">
+        <h2>Forms</h2>
+        <p class="text-light mb-4">Ferntext fields, checkboxes, radios, switches, sliders, and selects.</p>
+
+        <div style="max-width:480px">
+          <div data-field>
+            <label for="f-name">Full Name</label>
+            <input type="text" id="f-name" placeholder="Enter your name">
+            <div data-hint>As it appears on your ID</div>
+          </div>
+
+          <div data-field>
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" placeholder="you@example.com">
+          </div>
+
+          <div data-field>
+            <label for="f-filled">Filled Variant</label>
+            <input type="text" id="f-filled" class="filled" placeholder="Filled text field">
+          </div>
+
+          <div data-field data-field="error">
+            <label for="f-err">Password</label>
+            <input type="password" id="f-err" aria-invalid="true" value="123">
+            <div class="error">Password must be at least 8 characters</div>
+          </div>
+
+          <div data-field>
+            <label for="f-sel">Region</label>
+            <select id="f-sel">
+              <option>North America</option>
+              <option>Europe</option>
+              <option>Asia Pacific</option>
+            </select>
+          </div>
+
+          <div data-field>
+            <label for="f-ta">Description</label>
+            <textarea id="f-ta" placeholder="Optional description..." rows="3"></textarea>
+          </div>
+
+          <div class="hstack gap-6 mb-4">
+            <label><input type="checkbox" checked> Agree to terms</label>
+            <label><input type="checkbox"> Subscribe</label>
+          </div>
+
+          <div class="hstack gap-6 mb-4">
+            <label><input type="radio" name="plan" checked> Free</label>
+            <label><input type="radio" name="plan"> Pro</label>
+            <label><input type="radio" name="plan"> Enterprise</label>
+          </div>
+
+          <div class="hstack gap-6 mb-4">
+            <label><input type="checkbox" role="switch"> Dark mode</label>
+            <label><input type="checkbox" role="switch" checked> Notifications</label>
+          </div>
+
+          <div data-field>
+            <label for="f-range">Volume</label>
+            <input type="range" id="f-range" min="0" max="100" value="65">
+          </div>
+
+          <fieldset class="group">
+            <legend>https://</legend>
+            <input type="text" placeholder="example.com">
+            <button>Go</button>
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- CHIPS -->
+      <section class="demo-section" id="chips">
+        <h2>Chips</h2>
+        <p class="text-light mb-4">Fernchips for filtering, selecting, and displaying metadata.</p>
+
+        <div class="demo-row">
+          <span class="chip">Chip</span>
+          <span class="chip active">Selected</span>
+          <span class="chip elevated">Elevated</span>
+          <span class="chip"><span class="material-symbols-outlined" style="font-size:18px">check</span> With Icon</span>
+          <span class="chip">Removable <button data-close>×</button></span>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="demo-section" id="badges">
+        <h2>Badges</h2>
+        <p class="text-light mb-4">Fernbadges for labels and status indicators.</p>
+
+        <div class="demo-row">
+          <span class="badge">Primary</span>
+          <span class="badge secondary">Secondary</span>
+          <span class="badge" data-variant="success">Success</span>
+          <span class="badge" data-variant="error">Error</span>
+          <span class="badge" data-variant="warning">Warning</span>
+          <span class="badge dot"></span>
+          <span class="badge count">3</span>
+          <span class="badge count">99+</span>
+        </div>
+      </section>
+
+      <!-- TABS -->
+      <section class="demo-section" id="tabs">
+        <h2>Tabs</h2>
+        <p class="text-light mb-4">Fernprimary tabs with underline indicator and keyboard navigation.</p>
+
+        <ot-tabs>
+          <div role="tablist">
+            <button role="tab"><span class="material-symbols-outlined" style="font-size:18px">flight</span> Flights</button>
+            <button role="tab"><span class="material-symbols-outlined" style="font-size:18px">hotel</span> Hotels</button>
+            <button role="tab"><span class="material-symbols-outlined" style="font-size:18px">explore</span> Explore</button>
+          </div>
+          <div role="tabpanel">
+            <div class="card">
+              <p>Search and compare flights from hundreds of airlines. Find the best deals for your trip.</p>
+            </div>
+          </div>
+          <div role="tabpanel">
+            <div class="card">
+              <p>Browse hotels, resorts, and vacation rentals. Filter by price, rating, and amenities.</p>
+            </div>
+          </div>
+          <div role="tabpanel">
+            <div class="card">
+              <p>Discover popular destinations, travel guides, and curated experiences near you.</p>
+            </div>
+          </div>
+        </ot-tabs>
+      </section>
+
+      <!-- ACCORDION -->
+      <section class="demo-section" id="accordion">
+        <h2>Accordion</h2>
+        <p class="text-light mb-4">Fernexpansion panels using native <code>&lt;details&gt;</code>.</p>
+
+        <details open>
+          <summary>What is Fern UI?</summary>
+          <p>Fern UI is a lightweight UI kit built on CSS cascade layers, semantic HTML, and Web Components. Zero dependencies, fully themeable.</p>
+        </details>
+        <details>
+          <summary>How do I install it?</summary>
+          <p>Include the CSS and JS files via CDN or install from npm. No build step required for basic usage.</p>
+        </details>
+        <details>
+          <summary>Does it support dark mode?</summary>
+          <p>Yes! All colors use CSS <code>light-dark()</code> and adapt automatically based on the <code>color-scheme</code> property.</p>
+        </details>
+      </section>
+
+      <!-- TABLE -->
+      <section class="demo-section" id="table">
+        <h2>Table</h2>
+        <p class="text-light mb-4">Ferndata table with hover states and clean typography.</p>
+
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Last Active</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Alice Chen</td><td>Engineer</td><td><span class="badge" data-variant="success">Active</span></td><td>2 min ago</td></tr>
+              <tr><td>Bob Johnson</td><td>Designer</td><td><span class="badge" data-variant="success">Active</span></td><td>15 min ago</td></tr>
+              <tr><td>Carol Kim</td><td>PM</td><td><span class="badge secondary">Away</span></td><td>3 hours ago</td></tr>
+              <tr><td>David Park</td><td>Engineer</td><td><span class="badge" data-variant="error">Offline</span></td><td>2 days ago</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- DIALOG -->
+      <section class="demo-section" id="dialog">
+        <h2>Dialog</h2>
+        <p class="text-light mb-4">Ferndialog with scale animation. Works without JS via <code>commandfor</code>.</p>
+
+        <button commandfor="demo-dialog" command="show-modal">Open Dialog</button>
+
+        <dialog id="demo-dialog">
+          <header>
+            <span class="material-symbols-outlined" style="font-size:24px;color:var(--md-primary);">delete</span>
+            <h3>Delete item?</h3>
+            <p>This action cannot be undone. The item and all associated data will be permanently removed.</p>
+          </header>
+          <footer>
+            <button class="ghost" commandfor="demo-dialog" command="close">Cancel</button>
+            <button data-variant="danger" commandfor="demo-dialog" command="close">Delete</button>
+          </footer>
+        </dialog>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="demo-section" id="alerts">
+        <h2>Alerts</h2>
+        <p class="text-light mb-4">Fernbanner/alert component with semantic variants.</p>
+
+        <div class="vstack gap-3">
+          <div role="alert">
+            <span class="material-symbols-outlined">info</span>
+            This is a default informational alert.
+          </div>
+          <div role="alert" data-variant="success">
+            <span class="material-symbols-outlined">check_circle</span>
+            Deployment completed successfully.
+          </div>
+          <div role="alert" data-variant="warning">
+            <span class="material-symbols-outlined">warning</span>
+            API rate limit approaching threshold.
+          </div>
+          <div role="alert" data-variant="error">
+            <span class="material-symbols-outlined">error</span>
+            Connection to database failed.
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="demo-section" id="progress">
+        <h2>Progress</h2>
+        <p class="text-light mb-4">Fernlinear progress indicator and circular spinner.</p>
+
+        <h5>Progress Bar</h5>
+        <div class="vstack gap-3 mb-6">
+          <progress value="25" max="100"></progress>
+          <progress value="60" max="100"></progress>
+          <progress value="90" max="100"></progress>
+        </div>
+
+        <h5>Meter</h5>
+        <div class="vstack gap-3 mb-6">
+          <meter min="0" max="100" low="25" high="75" optimum="90" value="85"></meter>
+          <meter min="0" max="100" low="25" high="75" optimum="90" value="50"></meter>
+          <meter min="0" max="100" low="25" high="75" optimum="90" value="15"></meter>
+        </div>
+
+        <h5>Spinner</h5>
+        <div class="demo-row">
+          <div class="spinner small"></div>
+          <div class="spinner"></div>
+          <div class="spinner large"></div>
+        </div>
+      </section>
+
+      <!-- AVATARS -->
+      <section class="demo-section" id="avatars">
+        <h2>Avatars</h2>
+        <p class="text-light mb-4">Fernavatar for user representation.</p>
+
+        <div class="demo-row mb-4">
+          <div class="avatar small">S</div>
+          <div class="avatar">PR</div>
+          <div class="avatar large">AK</div>
+          <div class="avatar xl">JD</div>
+        </div>
+
+        <h5>Avatar Group</h5>
+        <div class="avatar-group">
+          <div class="avatar">AL</div>
+          <div class="avatar">BJ</div>
+          <div class="avatar">CK</div>
+          <div class="avatar">DP</div>
+          <div class="avatar secondary" style="background:var(--md-surface-3);color:var(--md-on-surface-variant);font-size:12px;">+5</div>
+        </div>
+      </section>
+
+      <!-- TOOLTIPS -->
+      <section class="demo-section" id="tooltips">
+        <h2>Tooltips</h2>
+        <p class="text-light mb-4">Fernplain tooltips via <code>title</code> attribute (enhanced by JS).</p>
+
+        <div class="demo-row">
+          <button title="Save changes" data-variant="tonal">Hover me</button>
+          <button class="icon" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+          <button class="icon" title="Share"><span class="material-symbols-outlined">share</span></button>
+          <button class="icon" title="More options"><span class="material-symbols-outlined">more_vert</span></button>
+        </div>
+      </section>
+
+      <!-- DROPDOWN -->
+      <section class="demo-section" id="dropdown">
+        <h2>Dropdown</h2>
+        <p class="text-light mb-4">Fernmenu using Popover API with keyboard navigation.</p>
+
+        <ot-dropdown>
+          <button popovertarget="demo-menu" class="outline"><span class="material-symbols-outlined" style="font-size:18px">more_vert</span> Options</button>
+          <menu popover id="demo-menu">
+            <button role="menuitem"><span class="material-symbols-outlined" style="font-size:20px">edit</span> Edit</button>
+            <button role="menuitem"><span class="material-symbols-outlined" style="font-size:20px">content_copy</span> Duplicate</button>
+            <button role="menuitem"><span class="material-symbols-outlined" style="font-size:20px">archive</span> Archive</button>
+            <hr>
+            <button role="menuitem" style="color:var(--md-error)"><span class="material-symbols-outlined" style="font-size:20px">delete</span> Delete</button>
+          </menu>
+        </ot-dropdown>
+      </section>
+
+      <!-- TOASTS -->
+      <section class="demo-section" id="toasts">
+        <h2>Toasts / Snackbar</h2>
+        <p class="text-light mb-4">Fernsnackbar notifications via <code>ot.toast()</code> API.</p>
+
+        <div class="demo-row">
+          <button onclick="ot.toast('This is a basic notification.')" data-variant="tonal">Default</button>
+          <button onclick="ot.toast('File saved successfully.', 'Saved', {variant:'success'})" data-variant="tonal">Success</button>
+          <button onclick="ot.toast('Check your network connection.', 'Warning', {variant:'warning'})" data-variant="tonal">Warning</button>
+          <button onclick="ot.toast('Failed to delete resource.', 'Error', {variant:'danger'})" data-variant="tonal">Error</button>
+        </div>
+      </section>
+
+      <!-- ELEVATION -->
+      <section class="demo-section" id="elevation">
+        <h2>Elevation</h2>
+        <p class="text-light mb-4">Fern5-level elevation system.</p>
+
+        <div class="demo-grid">
+          <div class="demo-box surface-0 elevation-0">Elevation 0</div>
+          <div class="demo-box surface-0 elevation-1">Elevation 1</div>
+          <div class="demo-box surface-0 elevation-2">Elevation 2</div>
+          <div class="demo-box surface-0 elevation-3">Elevation 3</div>
+          <div class="demo-box surface-0 elevation-4">Elevation 4</div>
+          <div class="demo-box surface-0 elevation-5">Elevation 5</div>
+        </div>
+      </section>
+
+      <!-- SKELETON -->
+      <section class="demo-section" id="skeleton">
+        <h2>Skeleton</h2>
+        <p class="text-light mb-4">Loading placeholder with shimmer animation.</p>
+
+        <div class="card outlined" style="max-width:400px">
+          <div class="hstack gap-3 mb-4">
+            <div class="skeleton circle" style="width:48px;height:48px;"></div>
+            <div style="flex:1">
+              <div class="skeleton heading"></div>
+              <div class="skeleton text" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="skeleton text"></div>
+          <div class="skeleton text"></div>
+          <div class="skeleton text" style="width:80%"></div>
+        </div>
+      </section>
+
+      <!-- UTILITIES -->
+      <section class="demo-section" id="utilities">
+        <h2>Utilities</h2>
+        <p class="text-light mb-4">Layout helpers, spacing, shape, and surface utilities.</p>
+
+        <h5>Grid</h5>
+        <div class="row mb-6">
+          <div class="col-4"><div class="demo-box surface-2">col-4</div></div>
+          <div class="col-4"><div class="demo-box surface-2">col-4</div></div>
+          <div class="col-4"><div class="demo-box surface-2">col-4</div></div>
+          <div class="col-6"><div class="demo-box surface-3">col-6</div></div>
+          <div class="col-6"><div class="demo-box surface-3">col-6</div></div>
+          <div class="col-3"><div class="demo-box surface-4">col-3</div></div>
+          <div class="col-9"><div class="demo-box surface-4">col-9</div></div>
+        </div>
+
+        <h5>Shape</h5>
+        <div class="demo-row mb-4">
+          <div class="demo-box surface-2 rounded-none" style="width:64px;height:64px;">none</div>
+          <div class="demo-box surface-2 rounded-xs" style="width:64px;height:64px;">xs</div>
+          <div class="demo-box surface-2 rounded-s" style="width:64px;height:64px;">s</div>
+          <div class="demo-box surface-2 rounded-m" style="width:64px;height:64px;">m</div>
+          <div class="demo-box surface-2 rounded-l" style="width:64px;height:64px;">l</div>
+          <div class="demo-box surface-2 rounded-xl" style="width:64px;height:64px;">xl</div>
+          <div class="demo-box surface-2 rounded-full" style="width:64px;height:64px;">full</div>
+        </div>
+
+        <h5>Stacks</h5>
+        <div class="hstack gap-2 mb-4">
+          <div class="demo-box surface-2">hstack</div>
+          <div class="demo-box surface-2">item</div>
+          <div class="demo-box surface-2">item</div>
+        </div>
+        <div class="vstack gap-2" style="max-width:200px;">
+          <div class="demo-box surface-2">vstack</div>
+          <div class="demo-box surface-2">item</div>
+          <div class="demo-box surface-2">item</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Simple scroll-spy for sidebar
+    document.querySelectorAll('aside[data-sidebar] nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        document.querySelectorAll('aside[data-sidebar] nav a').forEach(a => a.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'page');
+      });
+    });
+  </script>
+</body>
+</html>

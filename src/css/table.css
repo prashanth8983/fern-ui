@@ -1,0 +1,49 @@
+@layer base {
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: var(--md-body-m);
+  }
+
+  thead {
+    th {
+      padding: var(--md-space-3) var(--md-space-4);
+      font-family: var(--md-font-display);
+      font-size: var(--md-title-s);
+      font-weight: var(--md-font-medium);
+      color: var(--md-on-surface-variant);
+      text-align: start;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--md-on-surface);
+    }
+  }
+
+  tbody {
+    td {
+      padding: var(--md-space-3) var(--md-space-4);
+      border-bottom: 1px solid var(--md-outline-variant);
+      color: var(--md-on-surface);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Fern row hover state */
+    tr {
+      position: relative;
+
+      &:hover {
+        background-color: var(--md-hover);
+      }
+    }
+  }
+}
+
+@layer components {
+  .table {
+    overflow-x: auto;
+    border-radius: var(--md-shape-m);
+  }
+}

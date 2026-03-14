@@ -1,0 +1,96 @@
+@layer components {
+  dialog {
+    position: fixed;
+    inset: 0;
+    z-index: var(--md-z-modal);
+    width: min(100% - 3rem, 560px);
+    min-width: 280px;
+    max-height: 85vh;
+    margin: auto;
+    padding: 0;
+    background-color: var(--md-surface-3);
+    color: var(--md-on-surface);
+    border: none;
+    border-radius: var(--md-shape-xl);
+    box-shadow: var(--md-elevation-3);
+    overflow: hidden;
+
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      opacity var(--md-motion-medium) var(--md-motion-emphasized-decelerate),
+      transform var(--md-motion-medium) var(--md-motion-emphasized-decelerate),
+      overlay var(--md-motion-medium) allow-discrete,
+      display var(--md-motion-medium) allow-discrete;
+
+    &[open] {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @starting-style {
+      &[open] {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+    }
+
+    &::backdrop {
+      background-color: rgb(0 0 0 / 0);
+      transition:
+        background-color var(--md-motion-medium) var(--md-motion-standard),
+        overlay var(--md-motion-medium) allow-discrete,
+        display var(--md-motion-medium) allow-discrete;
+    }
+
+    &[open]::backdrop {
+      background-color: rgb(0 0 0 / 0.32);
+    }
+
+    @starting-style {
+      &[open]::backdrop {
+        background-color: rgb(0 0 0 / 0);
+      }
+    }
+
+    /* Fern Dialog icon */
+    & > header,
+    & > form > header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--md-space-4);
+      padding: 24px 24px 0;
+      text-align: center;
+
+      & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+        margin: 0;
+        font-size: var(--md-headline-s);
+        font-weight: var(--md-font-medium);
+      }
+
+      & > p {
+        font-size: var(--md-body-m);
+        color: var(--md-on-surface-variant);
+        margin: 0;
+        text-align: start;
+      }
+    }
+
+    & > p, & > div, & > section,
+    & > form > p, & > form > div, & > form > section {
+      padding: 24px;
+      overflow-y: auto;
+      font-size: var(--md-body-m);
+      color: var(--md-on-surface-variant);
+    }
+
+    & > footer,
+    & > form > footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--md-space-2);
+      padding: 0 24px 24px;
+    }
+  }
+}

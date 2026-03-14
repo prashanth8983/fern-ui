@@ -1,0 +1,98 @@
+@layer components {
+  /* Fern Tabs — Primary tabs by default */
+  [role="tablist"] {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    background-color: var(--md-surface);
+    border-bottom: 1px solid var(--md-outline-variant);
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+
+    /* Secondary tabs variant */
+    &.secondary {
+      [role="tab"] {
+        &::after {
+          height: 2px;
+          bottom: 0;
+        }
+
+        &[aria-selected="true"]::after {
+          background-color: var(--md-primary);
+        }
+      }
+    }
+  }
+
+  [role="tab"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--md-space-2);
+    flex: 1;
+    min-width: 48px;
+    padding: var(--md-space-3) var(--md-space-6);
+    font-family: var(--md-font-display);
+    font-size: var(--md-title-s);
+    font-weight: var(--md-font-medium);
+    line-height: 20px;
+    white-space: nowrap;
+    background: transparent;
+    color: var(--md-on-surface-variant);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: color var(--md-motion-medium) var(--md-motion-standard);
+
+    /* Fern active indicator */
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: var(--md-primary);
+      border-radius: 3px 3px 0 0;
+      transition:
+        width var(--md-motion-medium) var(--md-motion-standard);
+    }
+
+    /* State layer */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--md-on-surface);
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover::before { opacity: 0.08; }
+
+    &:hover {
+      color: var(--md-on-surface);
+    }
+
+    &[aria-selected="true"] {
+      color: var(--md-primary);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  [role="tabpanel"] {
+    padding: var(--md-space-4) 0;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

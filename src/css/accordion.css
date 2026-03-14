@@ -1,0 +1,88 @@
+@layer components {
+  /* Fern Expansion Panel */
+  details {
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-shape-m);
+    overflow: hidden;
+    transition: background-color var(--md-motion-medium) var(--md-motion-standard);
+
+    & + details {
+      margin-top: -1px;
+      border-radius: 0;
+    }
+
+    &:first-of-type {
+      border-radius: var(--md-shape-m) var(--md-shape-m) 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 0 var(--md-shape-m) var(--md-shape-m);
+    }
+
+    &:only-of-type {
+      border-radius: var(--md-shape-m);
+    }
+
+    &[open] {
+      background-color: var(--md-surface-1);
+    }
+
+    &[open] summary {
+      border-bottom: 1px solid var(--md-outline-variant);
+    }
+
+    & > *:not(summary) {
+      padding: var(--md-space-4) var(--md-space-6);
+      font-size: var(--md-body-m);
+      color: var(--md-on-surface-variant);
+    }
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--md-space-4) var(--md-space-6);
+    font-family: var(--md-font-display);
+    font-size: var(--md-title-s);
+    font-weight: var(--md-font-medium);
+    color: var(--md-on-surface);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+    transition: background-color var(--md-motion-medium) var(--md-motion-standard);
+
+    &::-webkit-details-marker { display: none; }
+
+    /* State layer */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--md-on-surface);
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover::before { opacity: 0.08; }
+
+    /* Chevron icon */
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background-color: var(--md-on-surface-variant);
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      transition: transform var(--md-motion-medium) var(--md-motion-standard);
+    }
+
+    details[open] > &::after {
+      transform: rotate(180deg);
+    }
+  }
+}

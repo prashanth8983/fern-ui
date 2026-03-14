@@ -1,0 +1,52 @@
+@layer components {
+  /* Fern Activity Feed / Event Timeline */
+  .evt {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--md-surface-4);
+    font-size: var(--md-body-m);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .evt-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--md-shape-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .material-symbols-outlined {
+      font-size: 16px;
+    }
+
+    /* Color variants */
+    &.i-green  { background: color-mix(in srgb, var(--md-success) 15%, transparent); color: var(--md-success); }
+    &.i-purple { background: var(--md-primary-container); color: var(--md-primary); }
+    &.i-amber  { background: color-mix(in srgb, var(--md-caution) 15%, transparent); color: var(--md-caution); }
+    &.i-red    { background: color-mix(in srgb, var(--md-error) 15%, transparent); color: var(--md-error); }
+    &.i-gray   { background: var(--md-surface-3); color: var(--md-on-surface-variant); }
+    &.i-blue   { background: color-mix(in srgb, var(--md-primary) 15%, transparent); color: var(--md-primary); }
+  }
+
+  .evt-text {
+    color: var(--md-on-surface-variant);
+
+    strong {
+      color: var(--md-on-surface);
+      font-weight: var(--md-font-medium);
+    }
+  }
+
+  .evt-time {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-label-s);
+    color: var(--md-outline);
+    margin-top: 2px;
+  }
+}

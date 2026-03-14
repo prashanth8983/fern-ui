@@ -1,0 +1,42 @@
+@layer components {
+  /* Fern Method / Code Tags */
+  .method-tag {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-label-s);
+    font-weight: var(--md-font-semibold);
+    padding: 2px 6px;
+    border-radius: var(--md-shape-full);
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &.get     { color: var(--md-on-success); background: color-mix(in srgb, var(--md-success) 15%, transparent); }
+    &.post    { color: var(--md-on-primary-container); background: var(--md-primary-container); }
+    &.put     { color: var(--md-on-caution); background: color-mix(in srgb, var(--md-caution) 20%, transparent); }
+    &.patch   { color: var(--md-on-caution); background: color-mix(in srgb, var(--md-caution) 20%, transparent); }
+    &.del,
+    &.delete  { color: var(--md-on-error); background: color-mix(in srgb, var(--md-error) 15%, transparent); }
+  }
+
+  /* Mono-styled inline values (endpoints, latency, RPS) */
+  .ep {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-body-s);
+    color: var(--md-on-surface-variant);
+  }
+
+  .lat {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-body-s);
+
+    &.ok   { color: var(--md-success); }
+    &.slow { color: var(--md-caution); }
+    &.bad  { color: var(--md-error); }
+  }
+
+  .rps {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-body-s);
+    color: var(--md-outline);
+  }
+}

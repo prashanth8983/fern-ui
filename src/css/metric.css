@@ -1,0 +1,84 @@
+@layer components {
+  /* Fern Metric / KPI Card */
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--md-surface-1);
+    border: none;
+    border-radius: var(--md-shape-m);
+    padding: var(--md-space-5);
+  }
+
+  .metric-label {
+    font-family: var(--md-font-display);
+    font-size: var(--md-label-m);
+    font-weight: var(--md-font-medium);
+    color: var(--md-on-surface-variant);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .metric-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .metric-val {
+    font-family: var(--md-font-display);
+    font-size: var(--md-headline-m);
+    font-weight: 475;
+    line-height: 1;
+    color: var(--md-on-surface);
+
+    .unit {
+      font-size: var(--md-title-m);
+      font-weight: var(--md-font-normal);
+      color: var(--md-on-surface-variant);
+    }
+  }
+
+  .metric-spark {
+    width: 72px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .metric-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metric-delta {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-label-m);
+    font-weight: var(--md-font-medium);
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 2px 8px;
+    border-radius: var(--md-shape-full);
+
+    &.up {
+      color: var(--md-on-success);
+      background: color-mix(in srgb, var(--md-success) 15%, transparent);
+    }
+
+    &.down {
+      color: var(--md-on-error);
+      background: color-mix(in srgb, var(--md-error) 15%, transparent);
+    }
+
+    .material-symbols-outlined {
+      font-size: 14px;
+    }
+  }
+
+  .metric-note {
+    font-size: var(--md-label-m);
+    color: var(--md-outline);
+  }
+}

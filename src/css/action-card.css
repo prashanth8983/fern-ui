@@ -1,0 +1,49 @@
+@layer components {
+  /* Fern Quick Action Cards */
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .qa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-shape-m);
+    background: var(--md-surface-0);
+    cursor: pointer;
+    font-family: var(--md-font-display);
+    font-size: var(--md-body-m);
+    font-weight: var(--md-font-medium);
+    color: var(--md-on-surface);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--md-motion-medium) var(--md-motion-standard);
+
+    /* State layer */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--md-on-surface);
+      opacity: 0;
+      transition: opacity var(--md-motion-medium) linear;
+    }
+
+    &:hover::before { opacity: 0.08; }
+    &:active::before { opacity: 0.12; }
+
+    .material-symbols-outlined {
+      font-size: 20px;
+      color: var(--md-primary);
+      position: relative;
+    }
+  }
+}

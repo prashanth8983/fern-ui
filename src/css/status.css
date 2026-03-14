@@ -1,0 +1,81 @@
+@layer components {
+  /* Fern Status Dot */
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--md-shape-full);
+    display: inline-block;
+    flex-shrink: 0;
+    background: var(--md-outline);
+
+    &.green, &.success  { background: var(--md-success); }
+    &.yellow, &.warning { background: var(--md-caution); }
+    &.red, &.error      { background: var(--md-error); }
+    &.blue, &.info      { background: var(--md-primary); }
+  }
+
+  /* Pulsing live indicator */
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--md-shape-full);
+    background: var(--md-success);
+    animation: md-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes md-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in srgb, var(--md-success) 40%, transparent); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+  }
+
+  /* ===== Service Health List ===== */
+  .svc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--md-surface-4);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .svc-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--md-font-display);
+    font-size: var(--md-body-m);
+    font-weight: var(--md-font-medium);
+  }
+
+  .svc-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .svc-uptime {
+    font-family: var(--md-font-mono);
+    font-size: var(--md-body-s);
+    color: var(--md-on-surface-variant);
+  }
+
+  /* Uptime bar chart (mini sparkline bars) */
+  .uptime-bars {
+    display: flex;
+    gap: 2px;
+
+    span {
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--md-success);
+      opacity: 0.6;
+
+      &.warn { background: var(--md-caution); opacity: 1; }
+      &.err  { background: var(--md-error); opacity: 1; }
+    }
+  }
+}

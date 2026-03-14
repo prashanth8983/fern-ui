@@ -1,0 +1,69 @@
+@layer animations {
+  /* Fern Pop-in — dialog/overlay entrance */
+  .animate-pop-in {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity var(--md-motion-medium) var(--md-motion-emphasized-decelerate),
+      transform var(--md-motion-medium) var(--md-motion-emphasized-decelerate),
+      overlay var(--md-motion-medium) allow-discrete,
+      display var(--md-motion-medium) allow-discrete;
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    &[data-state="closing"] {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    &[data-state="closing"]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* Fern Backdrop */
+  dialog::backdrop {
+    opacity: 1;
+    transition: opacity var(--md-motion-medium) var(--md-motion-standard);
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  /* Fern Slide-in — snackbar / bottom sheet */
+  .animate-slide-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--md-motion-long) var(--md-motion-emphasized-decelerate),
+      transform var(--md-motion-long) var(--md-motion-emphasized-decelerate);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    &[data-state="closing"] {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+
+  /* Fern Fade — general entrance */
+  .animate-fade {
+    opacity: 1;
+    transition: opacity var(--md-motion-medium) var(--md-motion-standard);
+
+    @starting-style {
+      opacity: 0;
+    }
+
+    &[data-state="closing"] {
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,134 @@
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* ===== Fern Color System ===== */
+    --md-primary: light-dark(#6442d6, #cfbcff);
+    --md-on-primary: light-dark(#fff, #35009c);
+    --md-primary-container: light-dark(#e9ddff, #4b22bf);
+    --md-on-primary-container: light-dark(#1e0060, #e9ddff);
+
+    --md-secondary: light-dark(#5d5d74, #c5c3dc);
+    --md-on-secondary: light-dark(#fff, #2e2f42);
+    --md-secondary-container: light-dark(#dcdaf5, #454559);
+    --md-on-secondary-container: light-dark(#21182b, #e2e0f9);
+
+    --md-tertiary: light-dark(#7b5266, #efb8cf);
+    --md-on-tertiary: light-dark(#fff, #4a2538);
+    --md-tertiary-container: light-dark(#f1d3f9, #633b4e);
+    --md-on-tertiary-container: light-dark(#30111d, #ffd8e8);
+
+    --md-error: light-dark(#ba1a1a, #ffb4ab);
+    --md-on-error: light-dark(#fff, #690005);
+    --md-error-container: light-dark(#ffdad6, #93000a);
+    --md-on-error-container: light-dark(#410002, #ffdad6);
+
+    --md-surface: light-dark(#fefbff, #1c1b1e);
+    --md-surface-0: light-dark(#fff, #141316);
+    --md-surface-1: light-dark(#f8f1f6, #25232a);
+    --md-surface-2: light-dark(#f2ecee, #2b2930);
+    --md-surface-3: light-dark(#ece7e9, #322f37);
+    --md-surface-4: light-dark(#e6e1e3, #38363d);
+    --md-surface-variant: light-dark(#e8e0e8, #49454e);
+    --md-on-surface: light-dark(#1c1b1d, #e6e1e6);
+    --md-on-surface-variant: light-dark(#4d4256, #cac4cf);
+
+    --md-outline: light-dark(#787579, #938f99);
+    --md-outline-variant: light-dark(#cac4cf, #49454e);
+
+    --md-inverse-surface: light-dark(#303030, #e6e1e6);
+    --md-inverse-on-surface: light-dark(#f5eff1, #1c1b1e);
+    --md-inverse-primary: light-dark(#cfbcff, #6442d6);
+
+    /* Extended colors */
+    --md-success: light-dark(#34be4d, #6dd58c);
+    --md-on-success: light-dark(#fff, #11371d);
+    --md-caution: light-dark(#a65b00, #ffb870);
+    --md-on-caution: light-dark(#fff, #3a2900);
+
+    /* ===== Fern State Layers ===== */
+    --md-hover: light-dark(rgb(31 25 35 / 8%), rgb(230 225 230 / 8%));
+    --md-pressed: light-dark(rgb(31 25 35 / 12%), rgb(230 225 230 / 12%));
+    --md-focus: light-dark(rgb(31 25 35 / 12%), rgb(230 225 230 / 12%));
+    --md-dragged: light-dark(rgb(31 25 35 / 16%), rgb(230 225 230 / 16%));
+
+    /* ===== Fern Elevation ===== */
+    --md-elevation-0: none;
+    --md-elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%), 0px 1px 3px 1px rgb(0 0 0 / 15%);
+    --md-elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%), 0px 2px 6px 2px rgb(0 0 0 / 15%);
+    --md-elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%), 0px 4px 8px 3px rgb(0 0 0 / 15%);
+    --md-elevation-4: 0px 2px 3px 0px rgb(0 0 0 / 30%), 0px 6px 10px 4px rgb(0 0 0 / 15%);
+    --md-elevation-5: 0px 4px 4px 0px rgb(0 0 0 / 30%), 0px 8px 12px 6px rgb(0 0 0 / 15%);
+
+    /* ===== Fern Shape ===== */
+    --md-shape-none: 0;
+    --md-shape-xs: 4px;
+    --md-shape-s: 8px;
+    --md-shape-m: 12px;
+    --md-shape-l: 16px;
+    --md-shape-xl: 28px;
+    --md-shape-full: 9999px;
+
+    /* ===== Fern Typography ===== */
+    --md-font-display: 'Google Sans', system-ui, sans-serif;
+    --md-font-body: 'Google Sans Text', system-ui, sans-serif;
+    --md-font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+    --md-font-normal: 400;
+    --md-font-medium: 500;
+    --md-font-semibold: 600;
+    --md-font-bold: 700;
+
+    /* Fern Type Scale */
+    --md-display-l: 57px;
+    --md-display-m: 45px;
+    --md-display-s: 36px;
+
+    --md-headline-l: 32px;
+    --md-headline-m: 28px;
+    --md-headline-s: 24px;
+
+    --md-title-l: 22px;
+    --md-title-m: 16px;
+    --md-title-s: 14px;
+
+    --md-label-l: 14px;
+    --md-label-m: 12px;
+    --md-label-s: 11px;
+
+    --md-body-l: 16px;
+    --md-body-m: 14px;
+    --md-body-s: 12px;
+
+    /* ===== Fern Motion ===== */
+    --md-motion-standard: cubic-bezier(.2, 0, 0, 1);
+    --md-motion-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    --md-motion-standard-accelerate: cubic-bezier(.3, 0, 1, 1);
+    --md-motion-emphasized: cubic-bezier(.2, 0, 0, 1);
+    --md-motion-emphasized-decelerate: cubic-bezier(.05, .7, .1, 1);
+    --md-motion-emphasized-accelerate: cubic-bezier(.3, 0, .8, .15);
+
+    --md-motion-short: 100ms;
+    --md-motion-medium: 200ms;
+    --md-motion-long: 350ms;
+    --md-motion-extra-long: 500ms;
+
+    /* ===== Spacing ===== */
+    --md-space-1: 0.25rem;
+    --md-space-2: 0.5rem;
+    --md-space-3: 0.75rem;
+    --md-space-4: 1rem;
+    --md-space-5: 1.25rem;
+    --md-space-6: 1.5rem;
+    --md-space-8: 2rem;
+    --md-space-10: 2.5rem;
+    --md-space-12: 3rem;
+    --md-space-16: 4rem;
+
+    /* ===== Z-Index ===== */
+    --md-z-dropdown: 50;
+    --md-z-sticky: 100;
+    --md-z-modal: 200;
+    --md-z-snackbar: 300;
+  }
+}
